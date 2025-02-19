@@ -86,6 +86,7 @@ const Hospitals = () => {
         ) : (
           <p>No hospitals found.</p>
         )}
+        <Link to="/rooms">View Rooms</Link>
       </div>
     </div>
   );
