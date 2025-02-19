@@ -1,6 +1,6 @@
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Dashboard, HomeLayout, Landing, Login, Logout, Register, Hospitals, AddHospitals, EditHospital } from "./pages";
+import { Dashboard, HomeLayout, Landing, Login, Logout, Register, Hospitals, AddHospitals, EditHospital , Rooms} from "./pages";
 import { ToastContainer, toast } from 'react-toastify';
 
 const router = createBrowserRouter([
@@ -39,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "edithospital/:id",
         element: <EditHospital />,
+      },
+      {
+        path: "rooms",
+        element: <Rooms/>,
       }
     ],
   },

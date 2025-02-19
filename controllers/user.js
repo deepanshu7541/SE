@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Hospital = require("../models/Hospital");
+const Rooms = require("../models/Rooms");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -133,6 +134,16 @@ const deleteHospital = async (req, res) => {
   }
 };
 
+const getRooms = async (req, res) => {  
+  try {
+    const rooms = await Rooms.find().populate("hospital", "hosp_name address"); // Fetch hospital name
+    res.json({ success: true, rooms });
+  } catch (error) {
+    console.error("Error fetching rooms:", error);
+    res.status(500).json({ success: false, error: "Failed to fetch rooms" });
+  }
+};
+
 module.exports = {
   login,
   register,
@@ -142,5 +153,6 @@ module.exports = {
   addHospital,
   getHospitalById,
   updateHospital,
-  deleteHospital
+  deleteHospital,
+  getRooms
 };

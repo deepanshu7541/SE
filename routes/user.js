@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const { login, register, dashboard, getAllUsers, getAllHospitals, addHospital, getHospitalById, updateHospital, deleteHospital } = require("../controllers/user");
+const { login, register, dashboard, getAllUsers, getAllHospitals, addHospital, getHospitalById, updateHospital, deleteHospital, getRooms } = require("../controllers/user");
 const authMiddleware = require('../middleware/auth')
 
 router.route("/login").post(login);
@@ -14,5 +14,6 @@ router.put("/hospitals/:id", authMiddleware, updateHospital); // ✅ Update a ho
 router.delete("/hospitals/:id", authMiddleware, deleteHospital); // ✅ Delete a hospital
 // router.route("/posthospitals").post(authMiddleware, postHospitals);
 router.post("/hospitals/add", authMiddleware, addHospital);
+router.get("/rooms", authMiddleware, getRooms);
 
 module.exports = router;

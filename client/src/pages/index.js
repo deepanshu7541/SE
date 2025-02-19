@@ -7,3 +7,4 @@ export { default as Logout } from "./Logout";
 export { default as Hospitals } from "./Hospitals";
 export { default as AddHospitals } from "./AddHospitals";
 export { default as EditHospital } from "./EditHospital";
+export { default as Rooms } from "./Rooms";

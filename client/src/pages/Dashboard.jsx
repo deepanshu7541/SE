@@ -40,6 +40,7 @@ const Dashboard = () => {
       <h1>Dashboard</h1>
       <p>Hi { data.msg }! { data.luckyNumber }</p>
       <Link to="/hospitals" className="users-button">Hospitals</Link>
+      <Link to="/rooms" className="users-button">View availaible rooms</Link>
       <Link to="/logout" className="logout-button">Logout</Link>
     </div>
   )
