@@ -16,7 +16,7 @@ const Hospitals = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted!");  // ✅ Debugging
+        console.log("Form submitted!");
 
         try {
             const response = await axios.post('http://localhost:3000/api/v1/hospitals/add', hospitals, {

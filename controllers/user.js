@@ -134,7 +134,7 @@ const deleteHospital = async (req, res) => {
   }
 };
 
-const getRooms = async (req, res) => {  
+const getAllRooms = async (req, res) => {  
   try {
     const rooms = await Rooms.find().populate("hospital", "hosp_name address"); // Fetch hospital name
     res.json({ success: true, rooms });
@@ -143,6 +143,31 @@ const getRooms = async (req, res) => {
     res.status(500).json({ success: false, error: "Failed to fetch rooms" });
   }
 };
+
+const getHospitalsWithID = async (req, res) => {
+  try {
+    const hospital = await Hospital.findById(req.params.hospitalId);
+    if (!hospital) {
+      return res.status(404).json({ success: false, error: "Hospital not found" });
+    }
+
+    res.json({ success: true, hospital });
+  } catch (error) {
+    console.error("Error fetching hospital:", error);
+    res.status(500).json({ success: false, error: "Failed to fetch hospital" });
+  }
+}
+
+const getRoomsForHospital = async (req, res) => {
+  try {
+    const rooms = await Rooms.find({ hospital: req.params.hospitalId });
+
+    res.json({ success: true, rooms });
+  } catch (error) {
+    console.error("Error fetching rooms:", error);
+    res.status(500).json({ success: false, error: "Failed to fetch rooms" });
+  }
+}
 
 module.exports = {
   login,
@@ -154,5 +179,7 @@ module.exports = {
   getHospitalById,
   updateHospital,
   deleteHospital,
-  getRooms
+  getAllRooms,
+  getHospitalsWithID,
+  getRoomsForHospital
 };
