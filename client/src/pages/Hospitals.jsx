@@ -31,6 +31,28 @@ const Hospitals = () => {
     }
   };
 
+  // ✅ Delete Hospital
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      await axios.delete(`http://localhost:3000/api/v1/hospitals/${id}`, {
+        headers: { "Authorization": `Bearer ${token}` }
+      });
+
+      alert("Hospital deleted successfully");
+      fetchHospitals(); // ✅ Refresh list after deletion
+    } catch (error) {
+      console.error("Error deleting hospital:", error);
+      alert("Failed to delete hospital");
+    }
+  };
+
+  // ✅ Navigate to Edit Page
+  const handleEdit = (id) => {
+    navigate(`/edithospital/${id}`);
+  };
+
   return (
     <div>
       <h3>Manage Hospitals</h3>
@@ -41,11 +63,29 @@ const Hospitals = () => {
           hospitals.map((hospital) => (
             <li key={hospital._id} style={{ marginBottom: "10px" }}>
               <strong>{hospital.hosp_name}</strong> - {hospital.address}
+              
+              {/* 🏥 View Rooms Button */}
               <button
                 onClick={() => navigate(`/hospitals/${hospital._id}/rooms`)}
                 style={{ marginLeft: "10px" }}
               >
                 🏥 View Rooms
+              </button>
+
+              {/* ✏️ Edit Button */}
+              <button 
+                onClick={() => handleEdit(hospital._id)} 
+                style={{ marginLeft: "10px", background: "yellow", cursor: "pointer" }}
+              >
+                ✏️ Edit
+              </button>
+
+              {/* 🗑️ Delete Button */}
+              <button 
+                onClick={() => handleDelete(hospital._id)} 
+                style={{ marginLeft: "10px", background: "red", color: "white", cursor: "pointer" }}
+              >
+                🗑️ Delete
               </button>
             </li>
           ))
