@@ -1,3 +1,4 @@
+import { ToastContainer, toast } from 'react-toastify';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   Dashboard,
@@ -20,6 +21,7 @@ import {
 const App = () => {
   return (
     <BrowserRouter>
+      <ToastContainer position='top-center' />
       <main>
         <Routes>
         <Route path="/" element={<Dashboard />} />
