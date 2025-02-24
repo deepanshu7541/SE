@@ -1,6 +1,6 @@
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { Dashboard, HomeLayout, Landing, Login, Logout, Register, Hospitals, AddHospitals, EditHospital , Rooms, AllRooms} from "./pages";
+import { Dashboard, HomeLayout, Landing, Login, Logout, Register, Hospitals, AddHospitals, EditHospital , Rooms, AllRooms, Bins} from "./pages";
 import { ToastContainer, toast } from 'react-toastify';
 
 const router = createBrowserRouter([
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "rooms",
         element: <AllRooms/>,
+      },
+      {
+        path: "/rooms/:roomId/bins",
+        element: <Bins/>,
       }
     ],
   },

@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const Hospital = require("../models/Hospital");
-const Rooms = require("../models/Rooms");
+const Room = require("../models/Rooms");
+const Bin = require("../models/Bin");
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -38,7 +39,7 @@ const dashboard = async (req, res) => {
   const luckyNumber = Math.floor(Math.random() * 100);
 
   res.status(200).json({
-    msg: `Hello, ${req.user.name}`,
+    msg: `${req.user.name}`,
     secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
   });
 };
@@ -136,7 +137,7 @@ const deleteHospital = async (req, res) => {
 
 const getAllRooms = async (req, res) => {  
   try {
-    const rooms = await Rooms.find().populate("hospital", "hosp_name address"); // Fetch hospital name
+    const rooms = await Room.find().populate("hospital", "hosp_name address"); // Fetch hospital name
     res.json({ success: true, rooms });
   } catch (error) {
     console.error("Error fetching rooms:", error);
@@ -160,7 +161,7 @@ const getHospitalsWithID = async (req, res) => {
 
 const getRoomsForHospital = async (req, res) => {
   try {
-    const rooms = await Rooms.find({ hospital: req.params.hospitalId });
+    const rooms = await Room.find({ hospital: req.params.hospitalId });
 
     res.json({ success: true, rooms });
   } catch (error) {
@@ -168,6 +169,53 @@ const getRoomsForHospital = async (req, res) => {
     res.status(500).json({ success: false, error: "Failed to fetch rooms" });
   }
 }
+
+const getAllBins = async (req, res) => {
+  try {
+    const bins = await Bin.find({ room: req.params.roomId });
+    if (!bins.length) {
+      return res.json({ success: true, bins: [], message: "No bins found." });
+    }
+    res.json({ success: true, bins });
+  } catch (error) {
+    console.error("Error fetching bins:", error);
+    res.status(500).json({ success: false, error: "Failed to fetch bins" });
+  }
+};
+
+const addBin = async (req, res) => {
+  try {
+    const { binNumber, color, items } = req.body;
+    const room = await Room.findById(req.params.roomId);
+
+    if (!room) return res.status(404).json({ success: false, error: "Room not found" });
+
+    if (!["blue", "black", "green"].includes(color)) {
+      return res.status(400).json({ success: false, error: "Invalid bin color" });
+    }
+
+    const newBin = new Bin({ binNumber, color, items, room: req.params.roomId });
+    await newBin.save();
+
+    res.status(201).json({ success: true, message: "Bin added successfully", bin: newBin });
+  } catch (error) {
+    console.error("Error adding bin:", error);
+    res.status(500).json({ success: false, error: "Failed to add bin" });
+  }
+};
+
+// ✅ Delete a Bin
+const deleteBin = async (req, res) => {
+  try {
+    const bin = await Bin.findByIdAndDelete(req.params.binId);
+    if (!bin) return res.status(404).json({ success: false, error: "Bin not found" });
+
+    res.json({ success: true, message: "Bin deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting bin:", error);
+    res.status(500).json({ success: false, error: "Failed to delete bin" });
+  }
+};
 
 module.exports = {
   login,
@@ -181,5 +229,8 @@ module.exports = {
   deleteHospital,
   getAllRooms,
   getHospitalsWithID,
-  getRoomsForHospital
+  getRoomsForHospital,
+  getAllBins,
+  addBin,
+  deleteBin
 };
