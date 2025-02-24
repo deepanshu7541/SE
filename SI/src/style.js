@@ -58,3 +58,62 @@ export const CourseCard = styled.div`
     opacity: 0.8;
   }
 `;
+
+export const styles = {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+};
+
+
+export const appStyles = {
+  padding: '20px',
+};
+
+export const headerStyles = {
+  textAlign: 'center',
+  marginBottom: '20px',
+};
+
+export const headerH1Styles = {
+  fontSize: '2.5rem',
+  margin: '0',
+};
+
+export const statsContainerStyles = {
+  display: 'flex',
+  justifyContent: 'space-around',
+  marginBottom: '20px',
+};
+
+// export const statCardStyles = {
+//   backgroundColor: '#fff',
+//   padding: '20px',
+//   borderRadius: '10px',
+//   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+//   textAlign: 'center',
+//   width: '22%',
+// };
+
+// export const statCardH2Styles = {
+//   fontSize: '2rem',
+//   margin: '0',
+// };
+
+// export const statCardPStyles = {
+//   fontSize: '1rem',
+//   color: '#666',
+// };

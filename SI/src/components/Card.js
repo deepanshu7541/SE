@@ -12,3 +12,19 @@ const Card = ({ title, term, color }) => {
 };
 
 export default Card;
+
+
+
+// import React from 'react';
+// import { statCardStyles, statCardH2Styles, statCardPStyles } from '../style.js';
+
+// const Card = ({ value, label }) => {
+//   return (
+//     <div style={statCardStyles}>
+//       <h2 style={statCardH2Styles}>{value}</h2>
+//       <p style={statCardPStyles}>{label}</p>
+//     </div>
+//   );
+// };
+
+// export default Card;
