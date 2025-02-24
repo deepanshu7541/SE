@@ -8,3 +8,5 @@ export { default as Hospitals } from "./Hospitals";
 export { default as AddHospitals } from "./AddHospitals";
 export { default as EditHospital } from "./EditHospital";
 export { default as Rooms } from "./Rooms";
+export { default as AllRooms } from "./AllRooms";
+export { default as Bins } from "./Bins";
