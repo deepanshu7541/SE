@@ -13,6 +13,8 @@ import Logout from "./Logout";
 import Rooms from "./Rooms";
 import AllRooms from "./AllRooms";
 import AddHospitals from "./AddHospitals";
+import AllBins from "./AllBins";
+import Bins from "./Bins";
 
 export {
   Login,
@@ -29,5 +31,7 @@ export {
   Logout,
   Rooms,
   AllRooms,
-  AddHospitals
+  AddHospitals,
+  AllBins,
+  Bins
 };

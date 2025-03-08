@@ -16,8 +16,12 @@ import {
   Rooms,
   AllRooms,
   EditHospital,
-  AddHospitals
+  AddHospitals,
+  AllBins,
+  Bins
 } from "./Pages/index";
+
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -29,6 +33,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/rooms" element={<AllRooms />} />
+          <Route path="/rooms/:id/bins" element={<Bins />} />
           <Route path="/hospitals/:hospitalId/rooms" element={<Rooms />} />
           <Route path="/hospitals" element={<Hospitals />} />
           <Route path="edithospital/:id" element={<EditHospital />} />
@@ -38,6 +43,7 @@ const App = () => {
           <Route path="/settings" element={<Settings />} />
           <Route path="/showcase-management" element={<ShowcaseManagement />} />
           <Route path="/user-management" element={<UserManagement />} />
+          <Route path="/bins" element={<AllBins />} />
           <Route path="/logout" element={<Logout />} />
         </Routes>
       </main>
