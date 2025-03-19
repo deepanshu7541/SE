@@ -80,24 +80,51 @@ const addHospital = async (req, res) => {
 };
 
 const register = async (req, res) => {
-  let foundUser = await User.findOne({ email: req.body.email });
-  if (foundUser === null) {
-    let { username, email, password } = req.body;
-    if (username.length && email.length && password.length) {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ msg: "Please provide email and password" });
+  }
+
+  let foundUser = await User.findOne({ email });
+
+  if (!foundUser) {
+    try {
       const person = new User({
-        name: username,
-        email: email,
-        password: password,
+        email,
+        password,
       });
+
       await person.save();
       return res.status(201).json({ person });
-    }else{
-        return res.status(400).json({msg: "Please add all values in the request body"});
+    } catch (error) {
+      console.error("Error registering user:", error);
+      return res.status(500).json({ msg: "Server error, unable to register" });
     }
   } else {
     return res.status(400).json({ msg: "Email already in use" });
   }
 };
+
+// const register = async (req, res) => {
+//   let foundUser = await User.findOne({ email: req.body.email });
+//   if (foundUser === null) {
+//     let { username, email, password } = req.body;
+//     if (username.length && email.length && password.length) {
+//       const person = new User({
+//         name: username,
+//         email: email,
+//         password: password,
+//       });
+//       await person.save();
+//       return res.status(201).json({ person });
+//     }else{
+//         return res.status(400).json({msg: "Please add all values in the request body"});
+//     }
+//   } else {
+//     return res.status(400).json({ msg: "Email already in use" });
+//   }
+// };
 
 // ✅ Get a Single Hospital
 const getHospitalById = async (req, res) => {

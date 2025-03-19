@@ -38,6 +38,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: ./Backend
 
       - name: Wait for MongoDB to start
         run: sleep 5
@@ -53,5 +54,6 @@ jobs:
 
       - name: Run Tests
         run: npm test
+        working-directory: ./Backend
         env:
           AUTH_TOKEN: ${{ env.TOKEN }}
