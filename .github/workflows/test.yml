@@ -21,7 +21,7 @@ jobs:
 
     env:
       TestUser: "deepanshu"    
-      TEST_EMAIL: "deepanshu@gmail.com"
+      TEST_EMAIL: "deepans@gmail.com"
       TEST_PASSWORD: "deepanshu@gmail.com"
       TEST_HOSP_NAME: "Max Hospital"
       TEST_HOSP_ADDRESS: "Delhi"
