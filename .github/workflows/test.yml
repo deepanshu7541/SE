@@ -20,8 +20,9 @@ jobs:
           - 27017:27017
 
     env:
-      TEST_EMAIL: "deepanshu@gmail.com"
-      TEST_PASSWORD: "deepanshu@gmail.com"
+      TestUser : "d@gmail.com"   
+      TEST_EMAIL: "d@gmail.com"
+      TEST_PASSWORD: "d@gmail.com"
       TEST_HOSP_NAME: "Max Hospital"
       TEST_HOSP_ADDRESS: "Delhi"
       MONGO_URI: "mongodb://127.0.0.1:27017/5510g"
