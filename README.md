@@ -90,5 +90,3 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 - Regular **data backups** should be made to ensure that any loss of data can be quickly recovered.
 
 ---
-
-This version is **clean, professional, and easy to read**, with clear headings, bullet points, and consistent formatting. Let me know if you need further adjustments! 😊
