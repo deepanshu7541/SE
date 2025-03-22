@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 // import "../styles/Logout.css";
 import { useNavigate } from 'react-router-dom';
+import Login from "./Login";
 
 const Logout = () => {
 
@@ -9,7 +10,7 @@ const Logout = () => {
     useEffect(() => {
         localStorage.removeItem("auth");
         setTimeout(() => {
-            navigate("/");
+            navigate("/login");
         }, 3000);
     }, []);
 
