@@ -15,10 +15,11 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 - The search bar will be available on **every page** for easy access.
 
 #### **Two Main Actions from Search Results:**
-1. **Click to View Information**:  
-   Clicking an item shows **detailed information** about the supply (e.g., description, specifications).
-2. **Add to Cart ("+")**:  
-   Clicking the **"+" symbol** adds the item to the cart.
+1. **Click to View Information**  
+   - Clicking an item shows **detailed information** about the supply (e.g., description, specifications).
+
+2. **Add to Cart ("+")**  
+   - Clicking the **"+" symbol** adds the item to the cart.
 
 ---
 
@@ -45,10 +46,10 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 
 ### **User Access Control**
 - Differentiation between **admin** and **non-admin users**.
-  - **Admin Accounts**:  
-    Can **edit, add, remove, and manage** all system data, including supplies and user permissions.
-  - **Non-Admin Accounts**:  
-    Can only **read the data** (view supplies, racks, and other information), with no permission to make edits.
+  - **Admin Accounts**  
+    - Can **edit, add, remove, and manage** all system data, including supplies and user permissions.
+  - **Non-Admin Accounts**  
+    - Can only **read the data** (view supplies, racks, and other information), with no permission to make edits.
 
 ---
 
@@ -66,12 +67,12 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 ---
 
 ### **3. Security**
-- **User Authentication**:  
-  Ensure secure user login for both admin and non-admin accounts.
-- **Data Protection**:  
-  All sensitive medical and user data must be **encrypted**, both in transit and at rest.
-- **Role-Based Access Control**:  
-  Admins have **full access** to all data, while non-admins have **read-only access**.
+- **User Authentication**  
+  - Ensure secure user login for both admin and non-admin accounts.
+- **Data Protection**  
+  - All sensitive medical and user data must be **encrypted**, both in transit and at rest.
+- **Role-Based Access Control**  
+  - Admins have **full access** to all data, while non-admins have **read-only access**.
 
 ---
 
@@ -91,15 +92,62 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 
 ---
 
-### **To run this project -
-**1. Create .env (Backend)**
-MONGO_URI=your_mongo_uri
-JWT_SECRET=your_secret_key
+## **4. Setup and Installation**
 
-**2. npm i in backend and frontend respectively.**
+### **Backend Setup**
+1. Create a `.env` file in the backend folder and add the following variables:
+   ```
+   MONGO_URI=your_mongo_uri
+   JWT_SECRET=your_secret_key
+   ```
 
-**3. Backend Folder**
-Start the server npm start
+2. Install dependencies:
+   ```
+   cd backend
+   npm install
+   ```
 
-**4. Frontend Folder**
-Start the folder npm run dev
+3. Start the backend server:
+   ```
+   npm start
+   ```
+
+---
+
+### **Frontend Setup**
+1. Navigate to the frontend folder:
+   ```
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```
+   npm install
+   ```
+
+3. Start the frontend application:
+   ```
+   npm run dev
+   ```
+
+---
+
+## **5. Contributors**
+- **Deepanshu Chand** - Full-stack Developer
+- **Harsh Vardhan** - Database Developer
+- **Rajvi Barot** - Frontend Developer
+
+---
+
+### **6. License**
+This project is licensed under the **MIT License**. Feel free to contribute and modify as needed!
+
+---
+
+### **7. Contact**
+For any questions or contributions, feel free to reach out at **[your email]**.
+
+---
+
+Now your **README.md** is properly formatted, structured, and ready for GitHub! 🚀
+
