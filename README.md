@@ -90,3 +90,16 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 - Regular **data backups** should be made to ensure that any loss of data can be quickly recovered.
 
 ---
+
+### **To run this project -
+**1. Create .env (Backend)**
+MONGO_URI=your_mongo_uri
+JWT_SECRET=your_secret_key
+
+**2. npm i in backend and frontend respectively.**
+
+**3. Backend Folder**
+Start the server npm start
+
+**4. Frontend Folder**
+Start the folder npm run dev

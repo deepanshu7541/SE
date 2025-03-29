@@ -51,11 +51,11 @@ const Header = () => {
     <div className="header">
       <div className="user-section">
         <div className="user-info">
-          <span className="user-name">Dr. John Smith</span>
+          <span className="user-name">Deepanshu Chand</span>
           <span className="user-role">Admin</span>
         </div>
         <div className="user-avatar">
-          <Link to="/profile" className="avatar-link">JS</Link>
+          <Link to="/profile" className="avatar-link">DC</Link>
         </div>
         <button className="logout-button" onClick={handleLogout}>
           Logout
