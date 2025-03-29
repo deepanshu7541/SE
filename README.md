@@ -137,17 +137,10 @@ SCIMS is a **healthcare inventory management system** tailored specifically for 
 - **Harsh Vardhan** - Database Developer
 - **Rajvi Barot** - Frontend Developer
 
----
-
-### **6. License**
-This project is licensed under the **MIT License**. Feel free to contribute and modify as needed!
 
 ---
 
 ### **7. Contact**
-For any questions or contributions, feel free to reach out at **[your email]**.
+For any questions or contributions, feel free to reach out at **deepanshu7541@gmail.com**.
 
 ---
-
-Now your **README.md** is properly formatted, structured, and ready for GitHub! 🚀
-
